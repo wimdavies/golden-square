@@ -1,7 +1,7 @@
 def factorial(n):
-    product = 1
+    product = n
     print(f"at the start product is {product}")
-    while n > 0:
+    while n > 1:
         n -= 1
         print(f"we multiply {product} by {n}")
         product *= n
