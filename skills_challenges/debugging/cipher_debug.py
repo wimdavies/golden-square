@@ -1,5 +1,7 @@
 def encode(text, key):
+    print("Encode has been called")
     cipher = make_cipher(key)
+    print(f"Cipher from make_cipher in encode is:\n{cipher}")
 
     ciphertext_chars = []
     for i in text:
@@ -10,18 +12,26 @@ def encode(text, key):
 
 
 def decode(encrypted, key):
+    print("Decode has been called")
     cipher = make_cipher(key)
+    print(f"Cipher from make_cipher is {cipher}")
 
     plaintext_chars = []
     for i in encrypted:
-        plain_char = cipher[65 - ord(i)]
+        # Fixed: cipher index operands were the wrong way around
+        plain_char = cipher[ord(i) - 65]
+        print(f"encrypted_char is {i}. plain_char is {plain_char}")
         plaintext_chars.append(plain_char)
 
     return "".join(plaintext_chars)
 
 
 def make_cipher(key):
-    alphabet = [chr(i + 98) for i in range(1, 26)]
+    print("make_cipher has been called")
+
+    # Fixed: chr() was for wrong integer, and range did not include 'z'
+    alphabet = [chr(i + 96) for i in range(1, 27)]
+    print(f"Alphabet in make_cipher is:\n{alphabet}")
     cipher_with_duplicates = list(key) + alphabet
 
     cipher = []
