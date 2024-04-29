@@ -45,7 +45,6 @@ class Friend:
         self.birthdate = birthdate
         self.card_sent = False
 
-
 class BirthdayCalendar:
     # User-facing properties:
     #   friends: list of Friend object
