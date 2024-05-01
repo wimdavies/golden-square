@@ -1,4 +1,4 @@
-# {{PROBLEM}} Class Design Recipe
+# Car / Tyre Class Design Recipe
 
 Copy this into a `recipe.md` in your project and fill it out.
 
@@ -20,44 +20,38 @@ Copy this into a `recipe.md` in your project and fill it out.
 >So that I can see the details of my car at a glance
 >I want to list the tyres' positions, latest readings and when those were
 
-Verbs: 
-Nouns: 
+Verbs: keep track; keep a record; record (data); see details; list (readings)
+Nouns: tyres; car; tyre position; tyre pressure and tyre tread depth; tyre readings; history of readings; current readings
 
 ## 2. Design the Class Interface
 
 _Include the initializer, public properties, and public methods with all parameters, return values, and side-effects._
 
 ```python
-class Friend:
-    def __init__(self, name, birthdate):
-        # name = string
-        # birthdate = string, parsed in datetime object
-        # card_sent = Boolean, default False
-        self.name = name
-        self.birthdate = birthdate
-        self.card_sent = False
+class Tyre:
+    def __init__(self, pressure, tread_depth):
+        self.pressure = pressure # INT
+        self.tread_depth = tread_depth # INT
 
-class BirthdayCalendar:
-    # User-facing properties:
-    #   friends: list of Friend object
+class Car:
+    def __init__(self, tyre_front_left, tyre_front_right, tyre_back_left, tyre_back_right):
+        self.front_left = # a Tyre instance
+        self.front_right = # a Tyre instance
+        self.back_left = # a Tyre instance
+        self.back_right = # a Tyre instance
+        self.readings_history = []
 
-    def __init__(self):
-        self.friends = []
-
-    def add(self, friend):
+    def add(self, tyre, position):
         # Parameters:
-        #   friend: Friend instance
+        #   tyre: Tyre instance
+        #   position: Car position attribute
         # Returns:
         #   Nothing
         # Side-effects
-        #   Appends friend to list
+        #   Sets position attribute to new tyre
         pass # No code here yet
 
-    def update_friend_name(self, old_name, new_name):
-        # side effect: updates name of friend(old_name) to new name
-
-    def update_friend_birthday(self, name, new_birthday):
-        # side effect: updates birthday of friend(name) to new birthday
+    def generate_tyre_report():
 
 ```
 
